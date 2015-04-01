@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="zil">
+<script>
+    window.location.assign('/#/');
+</script>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport">
+    <link rel="stylesheet" id="link"/>
+    <script>
+        var phoneScale = parseInt(window.screen.width) / 640;
+        viewport.content = 'width=640, minimum-scale = ' + phoneScale +
+        ', maximum-scale = ' + phoneScale +
+        ', target-densitydpi=device-dpi';
+        var pwd = "http://192.168.3.114:8000/"; //TODO: change in need
+        link.href=pwd+'css/style.css';
+    </script>
+    <title>谁是大富翁？</title>
+</head>
+<body ng-view>
+
+</body>
+<script src="angular/angular.js"></script>
+<script src="angular/angular-route.js"></script>
+<script src="javascript/app.js"></script>
+</html>
