@@ -13,14 +13,17 @@
         ', maximum-scale = ' + phoneScale +
         ', target-densitydpi=device-dpi';
         var pwd = "http://192.168.3.114:8000/"; //TODO: change in need
-        link.href=pwd+'css/style.css';
+        link.href='/css/index.css';
     </script>
+    <script src=""></script>
     <title>谁是大富翁？</title>
 </head>
 <body ng-view>
 
 </body>
-<script src="angular/angular.js"></script>
-<script src="angular/angular-route.js"></script>
+<script src="angular/angular.min.js"></script>
+<script src="angular/angular-route.min.js"></script>
 <script src="javascript/app.js"></script>
+<script src="javascript/jquery.min.js"></script>
+<!--<script src="http://test.shenmawo.com.cn:9090/target/target-script-min.js#anonymous"></script>-->
 </html>

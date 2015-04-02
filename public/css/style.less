@@ -1,0 +1,242 @@
+button{
+  border:none;
+  background-color: transparent;
+}
+button:focus{
+  outline:none;
+}
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  background-image:url('../images/bg-enter.jpg');
+  background-repeat: no-repeat;
+  background-color: rgb(245,212,13);
+  overflow:hidden;
+}
+li{
+  list-style: none;
+}
+.enter{
+  h2{
+    display:table;
+    margin:180px auto;
+  }
+  a{
+    display:block;
+    margin:580px 50px 0;
+  }
+}
+.path {
+  position:relative;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3em;
+  /*vertical part of path*/
+  &.vertical {
+    line-height: 180px;
+    float: left;
+    & > li:nth-of-type(2n) {
+      position: relative;
+      left: -70px;
+      top: 0px;
+    }
+    &.reverse, &.reverse > li {
+      -webkit-transform: scaleY(-1);
+      -moz-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+      -o-transform: scaleY(-1);
+      transform: scaleY(-1);
+    }
+
+    /*-- Start Hexagon --*/
+    &>li{
+      width: 140px;
+      height: 180px;
+      margin:-58px 0;
+    }
+    .hexagon {
+      overflow: hidden;
+      visibility: hidden;
+      -webkit-transform: rotate(120deg);
+      -moz-transform: rotate(120deg);
+      -o-transform: rotate(120deg);
+      transform: rotate(120deg);
+    }
+    .hexagon1 {
+      width: 140px;
+      height: 180px;
+      margin: 0 auto;
+    }
+    .hexagon-in1 {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: rotate(-60deg);
+      -moz-transform: rotate(-60deg);
+      -o-transform: rotate(-60deg);
+      transform: rotate(-60deg);
+    }
+    .hexagon-in2 {
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+      -webkit-transform: rotate(-60deg);
+      -moz-transform: rotate(-60deg);
+      -o-transform: rotate(-60deg);
+      transform: rotate(-60deg);
+      background: url("/images/step.png");
+    }
+    .hexagon-in2  img{
+      margin:30px auto;
+    }
+    /*-- End Hexagon --*/
+  }
+  /*horizontal part of path*/
+  &.horizontal{
+    line-height: 140px;
+    float:left;
+    /*-- Start Hexagon --*/
+    &>li{
+      float:left;
+      width: 180px;
+      height: 140px;
+      margin:0 -29px;
+    }
+    &>li:nth-of-type(even){
+      position:relative;
+      top:-70px;
+      left:0;
+    }
+    .hexagon {
+      overflow: hidden;
+      visibility: hidden;
+      -webkit-transform: rotate(60deg);
+      -moz-transform: rotate(60deg);
+      -o-transform: rotate(60deg);
+      transform: rotate(60deg);
+    }
+    .hexagon1 {
+      width: 180px;
+      height: 140px;
+      margin: 0 auto;
+    }
+    .hexagon-in1 {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: rotate(-120deg);
+      -moz-transform: rotate(-120deg);
+      -o-transform: rotate(-120deg);
+      transform: rotate(-120deg);
+    }
+    .hexagon-in2 {
+      width: 140px;
+      height: 180px;
+      visibility: visible;
+      -webkit-transform: rotate(150deg);
+      -moz-transform: rotate(150deg);
+      -o-transform: rotate(150deg);
+      transform: rotate(150deg);
+      background:url("/images/step.png");
+      position:relative;
+      top:-21px;
+      left:21px;
+    }
+    .hexagon-in2  img{
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      margin:30px;
+    }
+    /*-- End Hexagon --*/
+    &.reverse, &.reverse > li {
+      -webkit-transform: scaleX(-1);
+      -moz-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      transform: scaleX(-1);
+    }
+  }
+
+}
+.no-1{
+  top:249px;
+  left:65px;
+  li:nth-child(2n-1) .hexagon-in2{
+    background-color: @blue;
+  }
+  li:nth-child(2) .hexagon-in2{
+    background-color: @green;
+  }
+  li:nth-child(4) .hexagon-in2{
+    background-color: @pink;
+  }
+}
+.no-2{
+  top:64px;
+  left:23px;
+  li:first-child .hexagon-in2{
+    background-color: @green;
+  }
+  li:nth-child(2) .hexagon-in2{
+    background-color: @yellow;
+  }
+  li:last-child .hexagon-in2{
+    background-color: @pink;
+  }
+}
+.no-3{
+  top:79px;
+  left:366px;
+  li:first-child .hexagon-in2{
+    background-color: @red;
+  }
+  li:nth-child(2) .hexagon-in2{
+    background-color: @green;
+  }
+  li:nth-child(3) .hexagon-in2{
+    background-color: @yellow;
+  }
+  li:nth-child(4) .hexagon-in2{
+    background-color: @pink;
+  }
+  li:last-child .hexagon-in2{
+    background-color: @blue;
+  }
+}
+.no-4{
+  top:680px;
+  left:4px;
+  li:first-child .hexagon-in2{
+    background-color: @yellow;
+  }
+  li:last-child .hexagon-in2{
+    background-color: @red;
+  }
+}
+.game{
+  &>img{
+    position:absolute;
+    top:250px;
+    left:160px;
+  }
+  button{
+    margin:250px auto;
+    position:relative;
+    left:-50px;
+  }
+  #rule{
+    display:none;
+    position:absolute;
+    background-color: rgba(0,0,0,0.8);
+    left:0;
+    top:0;
+    img{
+      margin:50px;
+      display:block;
+    }
+  }
+}
