@@ -86,7 +86,9 @@ li{
       -moz-transform: rotate(-60deg);
       -o-transform: rotate(-60deg);
       transform: rotate(-60deg);
-      background: url("/images/step.png");
+      background: url("/images/step-v.png");
+      background-size: contain;
+      background-position-y: 9px;
     }
     .hexagon-in2  img{
       margin:30px auto;
@@ -139,10 +141,12 @@ li{
       -moz-transform: rotate(150deg);
       -o-transform: rotate(150deg);
       transform: rotate(150deg);
-      background:url("/images/step.png");
+      background:url("/images/step-v.png");
       position:relative;
       top:-21px;
       left:21px;
+      background-size:contain;
+      background-position-y: 8px;
     }
     .hexagon-in2  img{
       -webkit-transform: rotate(-90deg);
@@ -167,12 +171,21 @@ li{
   left:65px;
   li:nth-child(2n-1) .hexagon-in2{
     background-color: @blue;
+    &.shine{
+      background-color: lighten(saturate(@blue, 100%),30%);
+    }
   }
   li:nth-child(2) .hexagon-in2{
     background-color: @green;
+    &.shine{
+      background-color: lighten(saturate(@green, 100%),30%);
+    }
   }
   li:nth-child(4) .hexagon-in2{
     background-color: @pink;
+    &.shine{
+      background-color: lighten(saturate(@pink, 100%),30%);
+    }
   }
 }
 .no-2{
@@ -180,12 +193,21 @@ li{
   left:23px;
   li:first-child .hexagon-in2{
     background-color: @green;
+    &.shine{
+      background-color: lighten(saturate(@green, 100%),30%);
+    }
   }
   li:nth-child(2) .hexagon-in2{
     background-color: @yellow;
+    &.shine{
+      background-color: lighten(saturate(@yellow, 100%),30%);
+    }
   }
   li:last-child .hexagon-in2{
     background-color: @pink;
+    &.shine{
+      background-color: lighten(saturate(@pink, 100%),30%);
+    }
   }
 }
 .no-3{
@@ -193,18 +215,33 @@ li{
   left:366px;
   li:first-child .hexagon-in2{
     background-color: @red;
+    &.shine{
+      background-color: lighten(saturate(@red, 100%),30%);
+    }
   }
   li:nth-child(2) .hexagon-in2{
     background-color: @green;
+    &.shine{
+      background-color: lighten(saturate(@green, 100%),30%);
+    }
   }
   li:nth-child(3) .hexagon-in2{
     background-color: @yellow;
+    &.shine{
+      background-color: lighten(saturate(@yellow, 100%),30%);
+    }
   }
   li:nth-child(4) .hexagon-in2{
     background-color: @pink;
+    &.shine{
+      background-color: lighten(saturate(@pink, 100%),30%);
+    }
   }
   li:last-child .hexagon-in2{
     background-color: @blue;
+    &.shine{
+      background-color: lighten(saturate(@blue, 100%),30%);
+    }
   }
 }
 .no-4{
@@ -212,9 +249,15 @@ li{
   left:4px;
   li:first-child .hexagon-in2{
     background-color: @yellow;
+    &.shine{
+      background-color: lighten(saturate(@yellow, 100%),30%);
+    }
   }
   li:last-child .hexagon-in2{
     background-color: @red;
+    &.shine{
+      background-color: lighten(saturate(@red, 100%),30%);
+    }
   }
 }
 .game{

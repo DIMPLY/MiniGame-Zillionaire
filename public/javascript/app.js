@@ -59,9 +59,10 @@ angular.module('zil',['ngRoute'])
                 //    .success(function(data){
                 //        $scope.prize = data;
                 //    });
-                $scope.prize = {"point1":1,"point2":6,"point3":3,"giftId":0,"userId":1};
+                $scope.prize = {"point1":4,"point2":6,"point3":3,"giftId":0,"userId":1};
                 $scope.pwd = pwd;
                 var dizeCount = 0;
+                var totalStepCount = 0;
                 running = false;
                 if(window.DeviceMotionEvent) {
                     var speed = 80;
@@ -73,13 +74,19 @@ angular.module('zil',['ngRoute'])
                         if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed) {
                             if(!running){
                                 running=true;
-                                dice($scope.prize[++dizeCount]);
+                                dice($scope.prize['point'+(++dizeCount)]);
                             }
                         }
                         lastX = x;
                         lastY = y;
                     }, false);
                 }
+                $('#shakeimg0').click(function(){
+                    if(!running){
+                        running=true;
+                        dice($scope.prize['point'+(++dizeCount)]);
+                    }
+                });
                 function dice(num){
                     if(dizeCount<=3){
                         $('#wrapper').show();
@@ -91,16 +98,46 @@ angular.module('zil',['ngRoute'])
                             setTimeout(function() {
                                 $platfm.removeClass('ani-end');
                                 $('#wrapper').hide();
-                                $('.game>button').show();
-                                //TODO:继续完成走格子动画
-                                running = false;
+                                goSteps(num);//TODO:继续完成走格子动画
                             },1000);
                         },1800);
                     }
-                    if(dizeCount==3){
-                        //TODO:存入cookie。没有分享到朋友圈的话不允许再摇奖
-                        //TODO:根据giftId决定出现再接再厉还是进入后一页“中奖结果”
+                }
+                function goSteps(num){
+                    var stepCount = 0;
+                    var f = function () {
+                        shine(totalStepCount + (stepCount++));
+                        setTimeout(function () {
+                            if (stepCount == num) {
+                                $('.game>button').show();
+                                running = false;
+                                totalStepCount += stepCount;
+                                if (dizeCount == 3) {
+                                    //TODO:根据giftId决定出现再接再厉（再接再厉的话不离开现在页面）还是传值进入后一页“中奖结果”
+                                    //TODO:存入cookie。没有分享到朋友圈的话不允许再摇奖
+                                }
+                            }
+                            else f();
+                        }, 600);
+                    };
+                    f();
+                }
+                function shine(n){
+                    var nUl,nLi;
+                    switch(true){
+                        case n<5 : nUl=1;nLi=n+1;break;
+                        case n<8 : nUl=2;nLi=n-4;break;
+                        case n<13 : nUl=3;nLi=n-7;break;
+                        case n<15 : nUl=4;nLi=n-12;break;
+                        default : alert('no step to go on!');
                     }
+                    var $step = $('.no-'+nUl+' li:nth-child('+nLi+') .hexagon-in2');
+                    setTimeout(function(){
+                        $step.addClass('shine');
+                        setTimeout(function(){
+                            $step.removeClass('shine');
+                        },300);
+                    },300);
                 }
             },
             controllerAs:'game'
