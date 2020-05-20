@@ -5,6 +5,8 @@
 3. Install NodeJS on your local laptop (the one I used was 0.10.33) http://nodejs.org/dist/v0.10.33/
 4. Open your cellphone web browser and navigate to `“http://[laptop IP in the LAN]:8000/”`
 
+Ideas and pictures used in the game credit to my colleagues in One Lead Interactive Media Advertising, Beijing, China.
+
 ## 谁是大富翁测试
 1. 克隆到本地
 2. 保证本地电脑与测试手机接入同一局域网，并修改项目根目录下index.html中header里的javascript代码，使得pwd变量值为`“http://[本地电脑在局域网中的ip]:8000/”`
